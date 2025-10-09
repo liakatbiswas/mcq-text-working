@@ -25,6 +25,6 @@ class PermissionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.permission.edit', compact('id'));
     }
 }

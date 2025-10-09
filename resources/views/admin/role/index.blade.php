@@ -8,7 +8,7 @@
                         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                             Role
                         </h2>
-                        <a href="{{ route('roles.create') }}" class="btn-blue">
+                        <a href="{{ route('roles.create') }}" class="btn-primary">
                             Create Role
                         </a>
                     </div>

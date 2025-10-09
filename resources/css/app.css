@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-blue {
+.btn-primary {
     @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700;
+}
+
+.btn-cancel {
+    @apply bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600;
+}
+
+.label {
+    @apply uppercase block mb-2 w-full text-xs font-bold text-gray-700;
+}
+
+.form-input {
+    @apply block w-full px-4 leading-tight dark:bg-gray-600 dark:text-white text-gray-700 border border-gray-200 rounded appearance-none focus:outline-none;
 }

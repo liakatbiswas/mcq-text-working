@@ -1,5 +1,5 @@
 <button wire:loading.delay.longer.remove wire:target="{{ $methodName ?? 'save' }}" type="{{ $type ?? 'submit' }}"
-    class="{{ $class ?? 'lms-btn' }}">
+    class="{{ $class ?? 'btn-primary' }}">
     {{ $label ?? 'Submit' }}
 </button>
 
