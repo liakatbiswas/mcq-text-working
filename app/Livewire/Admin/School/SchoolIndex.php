@@ -10,7 +10,7 @@ class SchoolIndex extends Component
     public function render()
     {
         return view('livewire.admin.school.school-index', [
-            'schools' => School::latest()->paginate(5),
+            'schools' => School::latest()->paginate(),
         ]);
     }
 }

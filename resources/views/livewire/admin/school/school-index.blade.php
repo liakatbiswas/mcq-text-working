@@ -39,4 +39,9 @@
             @endforelse
         </tbody>
     </table>
+
+    <div class="mt-8">
+        {{ $schools->links() }}
+    </div>
+
 </div>

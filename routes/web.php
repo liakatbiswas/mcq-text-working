@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\SchoolController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/class', SchoolClassController::class);
     Route::resource('/school', SchoolController::class);
+    Route::resource('/subject', SubjectController::class);
 });
 
 require __DIR__.'/auth.php';
