@@ -25,7 +25,7 @@ class RoleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('admin.role.show', compact('id'));
     }
 
     /**
@@ -33,6 +33,6 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('admin.role.edit', compact('id'));
     }
 }

@@ -17,12 +17,13 @@ class PermissionIndex extends Component
         $permission = Permission::findOrFail($id);
         $permission->delete();
         flash()->option('timeout', 2000)->success('Permission deleted successfully!');
+        $this->resetPage();
     }
 
     public function render()
     {
         return view('livewire.admin.permission.permission-index', [
-            'permissions' => Permission::latest()->paginate(10),
+            'permissions' => Permission::latest()->paginate(4),
         ]);
     }
 }
