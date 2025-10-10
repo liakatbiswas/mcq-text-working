@@ -25,6 +25,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'phone' => fake()->numerify('015########'),
+            'image' => 'https://picsum.photos/400/300?random='.rand(1, 1000),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
