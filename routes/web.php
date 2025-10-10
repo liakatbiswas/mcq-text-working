@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SchoolClassController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -21,6 +22,8 @@ Route::middleware('auth')->group(function () {
     // role & permission
     Route::resource('/permissions', PermissionController::class)->only(['index', 'create', 'edit']);
     Route::resource('/roles', RoleController::class)->only(['index', 'create', 'show', 'edit']);
+
+    Route::resource('/class', SchoolClassController::class);
 });
 
 require __DIR__.'/auth.php';

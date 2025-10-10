@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
             'phone' => '01571719052',
             'password' => Hash::make('super'),
         ]);
+
+        $this->call([
+            SchoolClassSeeder::class,
+        ]);
     }
 }
