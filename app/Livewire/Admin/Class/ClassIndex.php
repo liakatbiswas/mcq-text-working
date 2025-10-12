@@ -10,7 +10,7 @@ class ClassIndex extends Component
     public function render()
     {
         return view('livewire.admin.class.class-index', [
-            'classes' => SchoolClass::all(),
+            'schoolClasses' => SchoolClass::all(),
         ]);
     }
 }

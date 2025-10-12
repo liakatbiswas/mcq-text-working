@@ -49,8 +49,27 @@ class User extends Authenticatable
         ];
     }
 
-    public function profile()
+    /**
+     * Relation: A user belongs to a school (e.g., teacher, admin, student)
+     */
+    public function school()
     {
-        return $this->hasOne(Profile::class);
+        return $this->belongsTo(School::class);
+    }
+
+    /**
+     * Relation: A user can be assigned to multiple classes (teacher or student)
+     */
+    public function schoolClasses()
+    {
+        return $this->belongsToMany(SchoolClass::class, 'user_school_class');
+    }
+
+    /**
+     * Relation: If user created chapters (e.g., teacher created)
+     */
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class, 'created_by');
     }
 }

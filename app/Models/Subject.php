@@ -17,6 +17,22 @@ class Subject extends Model
         return $this->belongsToMany(SchoolClass::class, 'assign_subjects');
     }
 
+    /**
+     * Relation: Subject can be assigned to many classes
+     */
+    public function schoolClasses()
+    {
+        return $this->belongsToMany(SchoolClass::class, 'assign_subjects');
+    }
+
+    /**
+     * Relation: Subject has many assigned subjects records
+     */
+    public function assignSubjects()
+    {
+        return $this->hasMany(AssignSubject::class);
+    }
+
     public function chapters()
     {
         return $this->hasMany(Chapter::class);
