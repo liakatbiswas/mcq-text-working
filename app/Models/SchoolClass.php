@@ -14,4 +14,9 @@ class SchoolClass extends Model
     {
         return $this->belongsToMany(Subject::class, 'assign_subjects');
     }
+
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
 }

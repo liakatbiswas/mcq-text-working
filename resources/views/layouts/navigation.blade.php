@@ -53,6 +53,9 @@
                                 <x-dropdown-link :href="route('assign-subject.index')">
                                     {{ __('Assign Subject') }}
                                 </x-dropdown-link>
+                                <x-dropdown-link :href="route('chapter.index')">
+                                    {{ __('Chapter') }}
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
                     </div>

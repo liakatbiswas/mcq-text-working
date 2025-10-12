@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AssignSubjectController;
+use App\Http\Controllers\Admin\ChapterController;
 use App\Http\Controllers\Admin\SchoolClassController;
 use App\Http\Controllers\Admin\SchoolController;
 use App\Http\Controllers\PermissionController;
@@ -30,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/school', SchoolController::class);
     Route::resource('/subject', SubjectController::class);
     Route::resource('/assign-subject', AssignSubjectController::class)->only(['index', 'create', 'show', 'edit']);
+    Route::resource('/chapter', ChapterController::class)->only(['index', 'create', 'show', 'edit']);
 });
 
 require __DIR__.'/auth.php';
