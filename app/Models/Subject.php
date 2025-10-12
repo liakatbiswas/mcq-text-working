@@ -11,4 +11,9 @@ class Subject extends Model
         'name_bn',
         'sub_code',
     ];
+
+    public function classes()
+    {
+        return $this->belongsToMany(SchoolClass::class, 'assign_subjects');
+    }
 }

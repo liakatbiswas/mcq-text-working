@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             SchoolClassSeeder::class,
             SchoolSeeder::class,
             SubjectSeeder::class,
+            RolePermissionSeeder::class,
         ]);
     }
 }
