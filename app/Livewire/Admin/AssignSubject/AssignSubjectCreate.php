@@ -30,25 +30,17 @@ class AssignSubjectCreate extends Component
 
     public function save()
     {
-
-        // AssignSubject::create([
-        //     'school_class_id' => $this->school_class_id,
-        //     'subject_id'      => $this->subject_id,
-        // ]);
-
         $this->validate();
-
+        AssignSubject::where('school_class_id', $this->school_class_id)->delete();
         foreach ($this->selectedSubjects as $subjectId) {
             AssignSubject::create([
                 'school_class_id' => $this->school_class_id,
                 'subject_id' => $subjectId,
             ]);
         }
-
-        session()->flash('success', 'Subjects assigned successfully!');
+        flash()->option('timeout', 2000)->success('Subjects assigned successfully!');
 
         return redirect()->route('assign-subject.index');
-
     }
 
     public function render()

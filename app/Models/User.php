@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Chapter::class, 'created_by');
     }
+
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
 }
