@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
-            $table->date('dob')->nullable();
-            $table->string('gender')->nullable();
+            $table->date('dob');
+            $table->enum('gender', ['male', 'female', 'other']);
             $table->string('facebook')->nullable();
             $table->string('linkedin')->nullable();
             $table->timestamps();

@@ -16,11 +16,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        $user = User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'super@liakatbiswas.com',
             'phone' => '01571719052',
             'password' => Hash::make('super'),
+        ]);
+
+        $user->profile()->create([
+            'address' => 'Mymensingh',
+            'city' => 'Mymensingh',
+            'country' => 'Bangladesh',
+            'dob' => '1985-05-03',
+            'gender' => 'male',
+            'facebook' => 'https:facebook.com/liakatbiswas',
+            'linkedin' => '',
         ]);
 
         $this->call([
