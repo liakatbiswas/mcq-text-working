@@ -13,25 +13,34 @@ class RolePermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        // Step 1: সব পারমিশন তৈরি করো
-        $permissions = ['create', 'edit', 'delete', 'show', 'create-admin', 'create-mcq', 'create-quiz'];
+        // Step 1: সব পারমিশন তৈরি করো (সব ছোট হাতের)
+        $permissions = [
+            'create',
+            'edit',
+            'delete',
+            'show',
+            'create-admin',
+            'create-mcq',
+            'create-quiz',
+        ];
 
         foreach ($permissions as $permission) {
-            Permission::firstOrCreate(['name' => $permission]);
+            Permission::firstOrCreate(['name' => strtolower($permission)]);
         }
 
-        // Step 2: Super Admin Role তৈরি করো Super Admin কে সব পারমিশন দাও
-        $superAdmin = Role::firstOrCreate(['name' => 'Super Admin']);
+        // Step 2: Super admin role তৈরি করো
+        $superAdmin = Role::firstOrCreate(['name' => 'super-admin']);
         $superAdmin->givePermissionTo(Permission::all());
 
-        // Step 3: Admin Role তৈরি করো Admin কে নির্দিষ্ট পারমিশন দাও
-        $admin = Role::firstOrCreate(['name' => 'Admin']);
+        // Step 3: Admin role তৈরি করো
+        $admin = Role::firstOrCreate(['name' => 'admin']);
         $adminPermissions = ['create', 'edit', 'delete', 'show'];
         $admin->givePermissionTo($adminPermissions);
 
-        // Step 3: Admin Role তৈরি করো Admin কে নির্দিষ্ট পারমিশন দাও
-        $student = Role::firstOrCreate(['name' => 'Student']);
+        // Step 4: Student role তৈরি করো
+        $student = Role::firstOrCreate(['name' => 'student']);
         $studentPermissions = ['show'];
         $student->givePermissionTo($studentPermissions);
+
     }
 }

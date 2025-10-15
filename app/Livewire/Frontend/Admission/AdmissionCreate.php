@@ -70,6 +70,8 @@ class AdmissionCreate extends Component
             'password' => Hash::make($this->password),
         ]);
 
+        $user->assignRole('student');
+
         // Create user profile
         $user->profile()->create([
             'address' => $this->address,
