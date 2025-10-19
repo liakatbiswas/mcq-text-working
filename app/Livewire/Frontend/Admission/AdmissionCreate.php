@@ -57,6 +57,14 @@ class AdmissionCreate extends Component
         ];
     }
 
+    protected function messages()
+    {
+        return [
+            'gender.required' => 'You have to select your gender.',
+            'gender.in' => 'The selected gender is invalid.',
+        ];
+    }
+
     // 🧩 Store method
     public function store()
     {
@@ -86,6 +94,11 @@ class AdmissionCreate extends Component
         // Fire registration event + login user
         event(new Registered($user));
         Auth::login($user);
+
+        $this->reset([
+            'name', 'email', 'phone', 'password', 'password_confirmation',
+            'address', 'city', 'country', 'dob', 'gender', 'facebook', 'linkedin',
+        ]);
 
         // Redirect after registration
         return redirect()->route('dashboard');

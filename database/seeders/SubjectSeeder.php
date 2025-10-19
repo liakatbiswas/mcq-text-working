@@ -17,7 +17,7 @@ class SubjectSeeder extends Seeder
             ['name_en' => 'English', 'name_bn' => 'ইংরেজি', 'sub_code' => '102'],
             ['name_en' => 'Mathematics', 'name_bn' => 'গণিত', 'sub_code' => '103'],
             ['name_en' => 'Science', 'name_bn' => 'বিজ্ঞান', 'sub_code' => '104'],
-            ['name_en' => 'ICT', 'name_bn' => 'তথ্য ও যোগাযোগ প্রযুক্তি', 'sub_code' => '105'],
+            ['name_en' => 'Information and Communications Technology', 'name_bn' => 'তথ্য ও যোগাযোগ প্রযুক্তি', 'sub_code' => '154'],
             ['name_en' => 'Social Science', 'name_bn' => 'সমাজবিজ্ঞান', 'sub_code' => '106'],
             ['name_en' => 'Religion', 'name_bn' => 'ধর্ম', 'sub_code' => '107'],
             ['name_en' => 'Bangladesh and Global Studies', 'name_bn' => 'বাংলাদেশ ও বিশ্বপরিচয়', 'sub_code' => '108'],

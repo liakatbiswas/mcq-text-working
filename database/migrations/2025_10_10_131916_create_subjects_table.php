@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_en');
             $table->string('name_bn');
-            $table->string('sub_code');
+            $table->string('sub_code')->unique();
             $table->timestamps();
         });
     }

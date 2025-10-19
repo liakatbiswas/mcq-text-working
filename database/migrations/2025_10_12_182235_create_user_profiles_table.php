@@ -17,11 +17,13 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('country')->nullable();
-            $table->date('dob');
-            $table->enum('gender', ['male', 'female', 'other']);
+            $table->date('dob')->nullable();
+            // $table->enum('gender', ['male', 'female', 'other']);
+            $table->string('gender', 10)->nullable();
             $table->string('facebook')->nullable();
             $table->string('linkedin')->nullable();
             $table->timestamps();
+
         });
     }
 

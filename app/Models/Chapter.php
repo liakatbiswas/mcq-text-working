@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chapter extends Model
 {
-    protected $fillable = [
-        'school_class_id', 'subject_id', 'name', 'code', 'description',
-    ];
+    protected $fillable = ['school_class_id', 'subject_id', 'name', 'code', 'description'];
 
     public function schoolClass()
     {
@@ -18,5 +16,10 @@ class Chapter extends Model
     public function subject()
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

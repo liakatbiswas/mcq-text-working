@@ -24,6 +24,7 @@ class User extends Authenticatable
         'image',
         'email',
         'password',
+        'school_class_id',
     ];
 
     /**
@@ -50,31 +51,26 @@ class User extends Authenticatable
     }
 
     /**
-     * Relation: A user belongs to a school (e.g., teacher, admin, student)
+     * Relation: এক user একটি class-এর অন্তর্ভুক্ত
      */
-    public function school()
+    public function schoolClass()
     {
-        return $this->belongsTo(School::class);
+        return $this->belongsTo(SchoolClass::class);
     }
 
     /**
-     * Relation: A user can be assigned to multiple classes (teacher or student)
+     * Relation: প্রোফাইল তথ্য
      */
-    public function schoolClasses()
-    {
-        return $this->belongsToMany(SchoolClass::class, 'user_school_class');
-    }
-
-    /**
-     * Relation: If user created chapters (e.g., teacher created)
-     */
-    public function chapters()
-    {
-        return $this->hasMany(Chapter::class, 'created_by');
-    }
-
     public function profile()
     {
         return $this->hasOne(UserProfile::class);
+    }
+
+    /**
+     * Relation: যদি শিক্ষক হয় এবং অধ্যায় তৈরি করে
+     */
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
     }
 }

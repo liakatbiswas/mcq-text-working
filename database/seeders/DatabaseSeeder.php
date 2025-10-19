@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             SchoolSeeder::class,
             SubjectSeeder::class,
             RolePermissionSeeder::class,
+            ChapterSeeder::class,
         ]);
     }
 }

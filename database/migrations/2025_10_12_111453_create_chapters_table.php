@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('school_class_id')->constrained()->onDelete('cascade');
             $table->foreignId('subject_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // ✅ শিক্ষক কে চিহ্নিত করবে
             $table->string('name');
             $table->string('code')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
