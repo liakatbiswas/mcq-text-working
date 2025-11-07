@@ -19,11 +19,16 @@ class Subject extends Model
 
     public function schoolClasses()
     {
-        return $this->belongsToMany(SchoolClass::class, 'assign_subjects');
+        return $this->belongsToMany(SchoolClass::class, 'assign_subjects', 'subject_id', 'school_class_id');
     }
 
     public function chapters()
     {
         return $this->hasMany(Chapter::class);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
     }
 }

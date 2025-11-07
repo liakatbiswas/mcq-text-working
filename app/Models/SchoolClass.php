@@ -20,11 +20,16 @@ class SchoolClass extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subject::class, 'assign_subjects');
+        return $this->belongsToMany(Subject::class, 'assign_subjects', 'school_class_id', 'subject_id');
     }
 
     public function chapters()
     {
         return $this->hasMany(Chapter::class);
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
     }
 }
