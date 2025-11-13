@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('subject_id')->constrained()->onDelete('cascade');
             $table->foreignId('chapter_id')->constrained()->onDelete('cascade');
             $table->foreignId('passage_id')->nullable()->constrained('passages')->onDelete('cascade');
-            $table->text('title');
+            $table->text('name');
             $table->text('ans_a');
             $table->text('ans_b');
             $table->text('ans_c');

@@ -8,6 +8,7 @@ use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/chapter', ChapterController::class)->only(['index', 'create', 'show', 'edit']);
     Route::resource('/students', StudentController::class);
     Route::resource('/questions', QuestionController::class);
+    Route::resource('/quizs', QuizController::class);
 });
 
 require __DIR__.'/auth.php';

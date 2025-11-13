@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             ChapterSeeder::class,
             QuestionSeeder::class,
+            AssignSubjectSeeder::class,
         ]);
     }
 }

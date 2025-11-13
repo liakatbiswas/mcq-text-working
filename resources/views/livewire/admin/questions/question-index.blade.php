@@ -49,7 +49,7 @@
                 @foreach ($questions as $question)
                     <tr>
                         <td>{{ $question->id }}</td>
-                        <td>{{ Str::limit($question->title, 60) }}</td>
+                        <td>{{ Str::limit($question->name, 60) }}</td>
                         <td>{{ $question->ans_a }}</td>
                         <td>{{ $question->ans_b }}</td>
                         <td>{{ $question->ans_c }}</td>
