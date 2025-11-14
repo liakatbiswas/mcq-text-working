@@ -13,7 +13,7 @@
                         </a>
                     </div>
 
-                    Question Create Page
+                    <livewire:admin.questions.question-create />
 
                 </div>
             </div>

@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             SubjectSeeder::class,
             RolePermissionSeeder::class,
             ChapterSeeder::class,
+            PassageSeeder::class,
             QuestionSeeder::class,
             AssignSubjectSeeder::class,
         ]);
