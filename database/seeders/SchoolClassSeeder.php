@@ -12,7 +12,7 @@ class SchoolClassSeeder extends Seeder
      */
     public function run(): void
     {
-        $classes = ['Six', 'Seven', 'Eight', 'Nine', 'Ten'];
+        $classes = ['Six', 'Seven', 'Eight', 'Nine'];
         foreach ($classes as $class) {
             SchoolClass::create(['name' => $class]);
         }

@@ -41,15 +41,10 @@ class QuestionIndex extends Component
         $this->reset(['chapter_id', 'chapters']);
 
         if ($value && $this->school_class_id) {
-            // $this->chapters = Chapter::where('school_class_id', $this->school_class_id)
-            //     ->where('subject_id', $value)
-            //     ->get();
-
-            $this->chapters = Chapter::where('subject_id', $value)
-            // ->where('school_class_id', $this->school_class_id)
+            $this->chapters = Chapter::where('school_class_id', $this->school_class_id)
+                ->where('subject_id', $value)
                 ->get();
         }
-
     }
 
     public function render()

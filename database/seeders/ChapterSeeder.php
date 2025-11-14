@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Chapter;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class ChapterSeeder extends Seeder
 {
@@ -12,56 +13,146 @@ class ChapterSeeder extends Seeder
      */
     public function run(): void
     {
-        $chapters = [
-            [
-                'school_class_id' => 5,
-                'subject_id' => 5,
-                'user_id' => 1,
-                'name' => 'তথ্য ও যোগাযোগ প্রযুক্তি ও আমাদের বাংলাদেশ',
-                'code' => '154',
-                'description' => 'Introduction to basic numbers and counting from 1 to 100',
-            ],
-            [
-                'school_class_id' => 5,
-                'subject_id' => 5,
-                'user_id' => 1,
-                'name' => 'কম্পিউটার রক্ষণাবেক্ষণ ও সাইবার নিরাপত্তা',
-                'code' => '154',
-                'description' => 'Introduction to basic numbers and counting from 1 to 100',
-            ],
-            [
-                'school_class_id' => 5,
-                'subject_id' => 5,
-                'user_id' => 1,
-                'name' => 'ইন্টারনেট ও ওয়েব পরিচিতি',
-                'code' => '154',
-                'description' => 'Introduction to basic numbers and counting from 1 to 100',
-            ],
-            [
-                'school_class_id' => 5,
-                'subject_id' => 5,
-                'user_id' => 1,
-                'name' => 'আমার লেখালেখি ও হিসাব',
-                'code' => '154',
-                'description' => 'Introduction to basic numbers and counting from 1 to 100',
-            ],
-            [
-                'school_class_id' => 5,
-                'subject_id' => 5,
-                'user_id' => 1,
-                'name' => 'মাল্টিমিডিয়া ও গ্রাফিক্স',
-                'code' => '154',
-                'description' => 'Introduction to basic numbers and counting from 1 to 100',
-            ],
-            [
-                'school_class_id' => 5,
-                'subject_id' => 5,
-                'user_id' => 1,
-                'name' => 'প্রোগ্রামিংয়ের মাধ্যমে সমস্যার সমাধান',
-                'code' => '154',
-                'description' => 'Introduction to basic numbers and counting from 1 to 100',
-            ],
-        ];
+        // $chapters = [
+        //     //   Subject: ICT; Class: Seven
+        //     [
+        //         'school_class_id' => 2,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'প্রাত্যহিক জীবনে তথ্য ও যোগাযোগ প্রযুক্তি',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 2,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'কম্পিউটার-সংশ্লিষ্ট যন্ত্রপাতি',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 2,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'নিরাপদ ও নৈতিক ব্যবহার',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 2,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'ওয়ার্ড প্রসেসিং',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 2,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'শিক্ষায় ইন্টারনেটের ব্যবহার',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     //   Subject: ICT; Class: Eight
+        //     [
+        //         'school_class_id' => 3,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'তথ্য ও যোগাযোগ প্রযুক্তির গুরুত্ব',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 3,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'কম্পিউটার নেওয়ার্ক',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 3,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'তথ্য ও যোগাযোগ প্রযুক্তির নিরাপদ ও নৈতিক ব্যবহার',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 3,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'স্প্রেডশিটের ব্যবহার',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 3,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'শিক্ষা ও দৈনিন্দিন জীবনে ইন্টারনেটের ব্যবহার',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     //   Subject: ICT; Class: Ten
+        //     [
+        //         'school_class_id' => 5,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'তথ্য ও যোগাযোগ প্রযুক্তি ও আমাদের বাংলাদেশ',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 5,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'কম্পিউটার রক্ষণাবেক্ষণ ও সাইবার নিরাপত্তা',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 5,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'ইন্টারনেট ও ওয়েব পরিচিতি',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 5,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'আমার লেখালেখি ও হিসাব',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 5,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'মাল্টিমিডিয়া ও গ্রাফিক্স',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        //     [
+        //         'school_class_id' => 5,
+        //         'subject_id' => 5,
+        //         'user_id' => 1,
+        //         'name' => 'প্রোগ্রামিংয়ের মাধ্যমে সমস্যার সমাধান',
+        //         'code' => '154',
+        //         'description' => 'Introduction to basic numbers and counting from 1 to 100',
+        //     ],
+        // ];
+
+        // foreach ($chapters as $chapter) {
+        //     Chapter::create($chapter);
+        // }
+
+        $json = File::get(database_path('data/chapters.json'));
+        $chapters = json_decode($json, true);
 
         foreach ($chapters as $chapter) {
             Chapter::create($chapter);

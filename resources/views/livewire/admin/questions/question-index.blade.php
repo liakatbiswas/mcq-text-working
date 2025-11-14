@@ -1,37 +1,51 @@
 <div class="p-4 space-y-4">
 
-    <div class="flex gap-4">
-        <select wire:model.live="school_class_id"
-            class="w-2/12 border p-2 rounded bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100">
-            <option value="" class="text-gray-700 dark:text-gray-200">Select Class</option>
-            @foreach ($school_classes as $class)
-                <option value="{{ $class->id }}" class="text-gray-800 dark:text-gray-100">
-                    {{ $class->name }}
-                </option>
-            @endforeach
-        </select>
+    <div class="flex">
+        <!-- Class -->
+        <div class="w-2/12 p-2">
+            <label class="block font-medium mb-1">Class</label>
+            <select wire:model.live="school_class_id" class="w-full border-gray-300 rounded">
+                <option value="">Select Class</option>
+                @foreach ($school_classes as $class)
+                    <option value="{{ $class->id }}">{{ ucfirst($class->name) }}</option>
+                @endforeach
+            </select>
+            @error('school_class_id')
+                <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
+        </div>
 
-        <select wire:model.live="subject_id"
-            class="w-5/12 border p-2 rounded bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100">
-            <option value="" class="text-gray-700 dark:text-gray-200">Select Subject</option>
-            @foreach ($subjects as $subject)
-                <option value="{{ $subject->id }}" class="text-gray-800 dark:text-gray-100">
-                    {{ $subject->name_en }}
-                </option>
-            @endforeach
-        </select>
+        <!-- Subject -->
+        <div class="w-5/12 p-2">
+            <label class="block font-medium mb-1">Subject</label>
+            <select wire:model.live="subject_id" class="w-full border-gray-300 rounded"
+                {{ empty($subjects) ? 'disabled' : '' }}>
+                <option value="">Select Subject</option>
+                @foreach ($subjects as $subject)
+                    <option value="{{ $subject->id }}">{{ $subject->name_en }}</option>
+                @endforeach
+            </select>
+            @error('subject_id')
+                <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
+        </div>
 
-        <select wire:model.live="chapter_id"
-            class="w-5/12 border p-2 rounded bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-100">
-            <option value="" class="text-gray-700 dark:text-gray-200">Select Chapter</option>
-            @foreach ($chapters as $chapter)
-                <option value="{{ $chapter->id }}" class="text-gray-800 dark:text-gray-100">
-                    {{ $chapter->name }}
-                </option>
-            @endforeach
-        </select>
+        <!-- Chapter -->
+        <div class="w-5/12 p-2">
+            <label class="block font-medium mb-1">Chapter</label>
+            <select wire:model="chapter_id" class="w-full border-gray-300 rounded"
+                {{ empty($chapters) ? 'disabled' : '' }}>
+                <option value="">Select Chapter</option>
+                @foreach ($chapters as $chapter)
+                    <option value="{{ $chapter->id }}">{{ $chapter->name }}</option>
+                @endforeach
+            </select>
+            @error('chapter_id')
+                <span class="text-red-600 text-sm">{{ $message }}</span>
+            @enderror
+        </div>
+
     </div>
-
 
     <table class="table-auto w-full">
         <thead>

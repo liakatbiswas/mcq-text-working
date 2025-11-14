@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subject;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class SubjectSeeder extends Seeder
 {
@@ -12,7 +12,8 @@ class SubjectSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('subjects')->insert([
+
+        $subjects = [
             ['name_en' => 'Bangla', 'name_bn' => 'বাংলা', 'sub_code' => '101'],
             ['name_en' => 'English', 'name_bn' => 'ইংরেজি', 'sub_code' => '102'],
             ['name_en' => 'Mathematics', 'name_bn' => 'গণিত', 'sub_code' => '103'],
@@ -33,6 +34,15 @@ class SubjectSeeder extends Seeder
             ['name_en' => 'Home Science', 'name_bn' => 'গার্হস্থ্য বিজ্ঞান', 'sub_code' => '118'],
             ['name_en' => 'Psychology', 'name_bn' => 'মনোবিজ্ঞান', 'sub_code' => '119'],
             ['name_en' => 'Logic', 'name_bn' => 'যুক্তিবিদ্যা', 'sub_code' => '120'],
-        ]);
+        ];
+
+        foreach ($subjects as $subject) {
+            Subject::create([
+                'name_en' => $subject['name_en'],
+                'name_bn' => $subject['name_bn'],
+                'sub_code' => $subject['sub_code'],
+            ]);
+        }
+
     }
 }
